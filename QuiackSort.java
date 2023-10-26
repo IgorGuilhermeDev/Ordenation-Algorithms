@@ -2,13 +2,13 @@ public class QuiackSort {
 
     public static void quickSort(int[] arr, int left, int right) {
         if (left < right) {
-            int pivotIndex = partition(arr, left, right);
+            int pivotIndex = part(arr, left, right);
             quickSort(arr, left, pivotIndex - 1);
             quickSort(arr, pivotIndex + 1, right);
         }
     }
 
-    public static int partition(int[] arr, int left, int right) {
+    public static int part(int[] arr, int left, int right) {
         int pivot = arr[right];
         int i = left - 1;
 
