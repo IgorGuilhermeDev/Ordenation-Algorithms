@@ -1,3 +1,4 @@
+package sortAlgorithms;
 public class InsertionSort {
 
     public static SortResult insertionSort(int[] arr) {

@@ -1,3 +1,4 @@
+package sortAlgorithms;
 public class SelectionSort {
     
     public static SortResult selectionSort(int[] arr) {

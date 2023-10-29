@@ -1,8 +1,12 @@
+package sortAlgorithms;
+import enumerator.OrdenationType;
+
 public class SortResult {
     private Long startTime;
     private Long endTime;
     private Integer vectorLength;
     private String algorithmName;
+    private OrdenationType vectorOrdernation;
 
     public SortResult(){
 
@@ -13,6 +17,14 @@ public class SortResult {
         this.endTime = endTime;
         this.vectorLength = vectorLength;
         this.algorithmName = algorithmName;
+    }
+
+    public OrdenationType getVectorOrdernation() {
+        return vectorOrdernation;
+    }
+
+    public void setVectorOrdernation(OrdenationType vectorOrdernation) {
+        this.vectorOrdernation = vectorOrdernation;
     }
 
     public Long getStartTime() {
