@@ -1,8 +1,7 @@
 package sortAlgorithms;
 public class SelectionSort {
     
-    public static SortResult selectionSort(int[] arr) {
-        long startTime = System.nanoTime();
+    public static void selectionSort(int[] arr) {
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
@@ -17,10 +16,5 @@ public class SelectionSort {
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }
-
-        long endTime = System.nanoTime();
-
-        return new SortResult(startTime, endTime, n, "Selection Sort");
-
     }
 }

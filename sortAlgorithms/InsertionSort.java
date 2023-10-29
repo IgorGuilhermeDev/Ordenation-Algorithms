@@ -1,9 +1,9 @@
 package sortAlgorithms;
+
 public class InsertionSort {
 
-    public static SortResult insertionSort(int[] arr) {
-        long startTime = System.nanoTime();
-        
+    public static void insertionSort(int[] arr) {
+
         int n = arr.length;
         for (int i = 1; i < n; i++) {
             int key = arr[i];
@@ -16,9 +16,6 @@ public class InsertionSort {
             arr[j + 1] = key;
         }
 
-        long endTime = System.nanoTime();
-
-        return new SortResult(startTime, endTime, n, "Insertion Sort");
     }
-    
+
 }
