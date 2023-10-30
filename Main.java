@@ -27,6 +27,7 @@ public class Main {
     static final int[] ASCENDING_ARR_500K = Utils.generateRandomIntArray(500000, 0, 500000, OrdenationType.ASCENDING);
     static final int[] DESCENDING_ARR_500K = Utils.generateRandomIntArray(500000, 0, 500000, OrdenationType.DESCENDING);
 
+    static final String RESULTS_FILE_PATH =  "./results.txt";
     public static void main(String[] args) {
         generateReultsOfQuickSort();
         // generateReultsOfMergeSort();
@@ -122,7 +123,7 @@ public class Main {
         long endTime = System.nanoTime();
         SortResult sortResult = new SortResult(startTime, endTime, array.length, "Merge Sort",
                 ordenationType);
-        sortResult.toCsv(false);
+        sortResult.toCsv(false, RESULTS_FILE_PATH);
     }
 
     private static void testInsertionSort(int[] array, OrdenationType ordenationType) {
@@ -131,7 +132,7 @@ public class Main {
         long endTime = System.nanoTime();
         SortResult sortResult = new SortResult(startTime, endTime, array.length, "Insertion Sort",
                 ordenationType);
-        sortResult.toCsv(false);
+        sortResult.toCsv(false, RESULTS_FILE_PATH);
 
     }
 
@@ -142,7 +143,7 @@ public class Main {
         long endTime = System.nanoTime();
         SortResult sortResult = new SortResult(startTime, endTime, array.length, "Selection Sort",
                 ordenationType);
-        sortResult.toCsv(false);
+        sortResult.toCsv(false, RESULTS_FILE_PATH);
     }
 
     private static void testQuickSort(int[] array, OrdenationType ordenationType) {
@@ -152,7 +153,7 @@ public class Main {
             long endTime = System.nanoTime();
             SortResult sortResult = new SortResult(startTime, endTime, array.length, "Quick Sort",
                     ordenationType);
-            sortResult.toCsv(false);
+            sortResult.toCsv(false, RESULTS_FILE_PATH);
         } catch (Exception e) {
             System.out.println(e);
         }

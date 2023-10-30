@@ -1,5 +1,10 @@
 package sortAlgorithms;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import enumerator.OrdenationType;
 
 public class SortResult {
@@ -62,13 +67,36 @@ public class SortResult {
         this.algorithmName = algorithmName;
     }
 
-    public void toCsv(boolean writeColumns) {
-        StringBuilder builder = new StringBuilder();
-        if (writeColumns)
-            this.writeColumns((builder));
+    public void toCsv(boolean writeColumns, String filePath) {
 
-        this.writeValues(builder);
-        System.out.println((builder.toString()));
+        boolean fileExists = this.createFile(filePath);
+        if (fileExists) {
+            StringBuilder builder = new StringBuilder();
+            if (writeColumns)
+                this.writeColumns((builder));
+
+            this.writeValues(builder);
+            this.save(filePath, builder.toString());
+        }
+    }
+
+    private boolean createFile(String filePath) {
+        try {
+            File file = new File(filePath);
+            if (!file.exists()) {
+                boolean created = file.createNewFile();
+                if (!created) {
+
+                    System.out.println("File creation failed.");
+                    return false;
+                }
+            }
+
+            return true;
+        } catch (IOException e) {
+            System.err.println("An error occurred: " + e.getMessage());
+            return false;
+        }
     }
 
     private void writeColumns(StringBuilder builder) {
@@ -78,8 +106,19 @@ public class SortResult {
 
     private void writeValues(StringBuilder builder) {
         builder.append(this.algorithmName).append(",").append(this.vectorLength).append(",")
-                .append(this.vectorOrdernation).append(",").append(this.endTime - this.startTime).append(",")
+                .append(this.vectorOrdernation).append(",").append(this.endTime - this.startTime)
                 .append("\n");
     }
 
+    private void save(String filePath, String fileContent) {
+        try {
+            FileWriter fileWriter = new FileWriter(filePath, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(fileContent);
+            bufferedWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        }
+    }
 }
