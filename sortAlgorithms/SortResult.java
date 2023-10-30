@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 import enumerator.OrdenationType;
 
@@ -67,12 +70,12 @@ public class SortResult {
         this.algorithmName = algorithmName;
     }
 
-    public void toCsv(boolean writeColumns, String filePath) {
+    public void toCsv(boolean writeHeader, String filePath) {
 
         boolean fileExists = this.createFile(filePath);
         if (fileExists) {
             StringBuilder builder = new StringBuilder();
-            if (writeColumns)
+            if (writeHeader)
                 this.writeColumns((builder));
 
             this.writeValues(builder);
@@ -105,8 +108,12 @@ public class SortResult {
     }
 
     private void writeValues(StringBuilder builder) {
+        Locale desiredLocale = new Locale("en", "US");
+        DecimalFormatSymbols customSymbols = new DecimalFormatSymbols(desiredLocale);
+        DecimalFormat decimalFormat = new DecimalFormat("0.############", customSymbols);
         builder.append(this.algorithmName).append(",").append(this.vectorLength).append(",")
-                .append(this.vectorOrdernation).append(",").append(this.endTime - this.startTime)
+                .append(this.vectorOrdernation).append(",")
+                .append(decimalFormat.format(((double) (this.endTime - this.startTime) / 1_000_000_000)))
                 .append("\n");
     }
 
