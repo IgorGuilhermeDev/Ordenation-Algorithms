@@ -35,10 +35,10 @@ public class Main {
     }
 
     private static void generateReultsOfQuickSort() {
-        // test(100, OrdenationAlgorithms.QUICK_SORT);
-        // test(1000, OrdenationAlgorithms.QUICK_SORT);
+        test(100, OrdenationAlgorithms.QUICK_SORT);
+        test(1000, OrdenationAlgorithms.QUICK_SORT);
         test(100000, OrdenationAlgorithms.QUICK_SORT);
-        // test(500000, OrdenationAlgorithms.QUICK_SORT);
+        test(500000, OrdenationAlgorithms.QUICK_SORT);
     }
 
     private static void generateReultsOfMergeSort() {
