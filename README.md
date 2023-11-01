@@ -15,18 +15,19 @@ After saving the results, you can run a Python script to plot graphs for result 
 ## How run the project
 * Open the root folder of the project.
 
-![](https://hackmd.io/_uploads/rk90ZE1mp.png)
+![](readme_imgs/root_folder.png)
 
 * Open a terminal and run the following commands (this step can take a long time):
 
     ```java
-    javac Main.java
-    java -Xss80m Main.java
+        javac Main.java
+        java -Xss80m Main.java
     ```
 * Create a virtual enviroment and install the depedencies, commands bellow:
     
     ```python
         python3.10 -m venv venv
+        source venv/bin/activate
         pip install -r requirements.txt
     ```
     
@@ -37,7 +38,7 @@ After saving the results, you can run a Python script to plot graphs for result 
     
 After that, your results.csv will be filled and you output will be like that: 
 
-![](https://hackmd.io/_uploads/SJZuVVym6.png)
+![](readme_imgs/output.png)
 
 After closing one graph, another will appear.
 
