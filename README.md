@@ -42,7 +42,13 @@ After that, your results.csv will be filled and you output will be like that:
 
 After closing one graph, another will appear.
 
+## WARNING
+If you are in a linux based system and you got this error: "UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()", run this command to fix:
 
-
+  ```bash
+  sudo apt-get install python3-tk
+  sudo apt-get purge python3-tk #This is used to remove if you dont want anymore
+  ```
 ## Obs
 In this project, I used Python 3.10, but it may work with earlier versions. The commands may need to be adapted in your case, and you might be able to call Python without specifying the version, using just the "python" command.
