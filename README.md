@@ -1,5 +1,7 @@
 # Ordenation-Algorithms
 
+[🇧🇷 Versão em Português](README-pt-BR.md)
+
 This project has been created with the purpose of benchmarking the main sorting algorithms.
 
 The benchmark has been conducted using arrays of **100**, **1000**, **100000**, and **500000** integer elements in three different orders: **RANDOM**, **ASCENDING**, and **DESCENDING**, while testing Quick Sort, **Merge Sort**, **Selection Sort**, and **Insertion Sort**.
